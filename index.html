@@ -567,17 +567,73 @@
 
     /* ---------- Bagnino: fischio + avviso ---------- */
     let actx;
+    /* Fischietto da bagnino: tre fischi lunghi alternati (acuto, grave, acuto)
+       con il trillo della pallina e un filo di soffio d'aria. */
+    let whistling = false;
     function whistle() {
+      if (whistling) return;
       try {
         actx = actx || new (window.AudioContext || window.webkitAudioContext)();
-        const t = actx.currentTime, o = actx.createOscillator(), l = actx.createOscillator(), lg = actx.createGain(), g = actx.createGain();
-        o.frequency.setValueAtTime(2700, t); l.frequency.setValueAtTime(32, t); lg.gain.setValueAtTime(140, t);
-        l.connect(lg).connect(o.frequency);
-        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.12, t + .03); g.gain.setValueAtTime(.12, t + .22);
-        g.gain.linearRampToValueAtTime(.02, t + .27); g.gain.linearRampToValueAtTime(.12, t + .31);
-        g.gain.setValueAtTime(.12, t + .62); g.gain.exponentialRampToValueAtTime(.0001, t + .75);
-        o.connect(g).connect(actx.destination); o.start(t); l.start(t); o.stop(t + .8); l.stop(t + .8);
-      } catch (e) {}
+        if (actx.state === "suspended") actx.resume();
+        whistling = true;
+        const t0 = actx.currentTime + .03;
+        const master = actx.createGain();
+        master.gain.value = .16;
+        master.connect(actx.destination);
+
+        // rumore bianco riutilizzato per il soffio
+        const noiseBuf = actx.createBuffer(1, actx.sampleRate * 1.6, actx.sampleRate);
+        const nd = noiseBuf.getChannelData(0);
+        for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+
+        const blasts = [
+          { at: 0,    dur: .85, f: 2950 },
+          { at: 1.0,  dur: .85, f: 2500 },
+          { at: 2.0,  dur: 1.5, f: 2950 }
+        ];
+        let end = 0;
+        blasts.forEach(({ at, dur, f }) => {
+          const s = t0 + at, e = s + dur;
+          end = Math.max(end, e);
+
+          // tono con attacco "a salire" e coda che cala
+          const o = actx.createOscillator();
+          o.type = "sine";
+          o.frequency.setValueAtTime(f * .9, s);
+          o.frequency.exponentialRampToValueAtTime(f, s + .05);
+          o.frequency.setValueAtTime(f, e - .08);
+          o.frequency.exponentialRampToValueAtTime(f * .93, e);
+
+          // trillo della pallina: vibrato + tremolo veloci
+          const lfo = actx.createOscillator();
+          lfo.frequency.setValueAtTime(24, s);
+          lfo.frequency.linearRampToValueAtTime(30, e);
+          const lfoF = actx.createGain(); lfoF.gain.value = f * .06;
+          const lfoA = actx.createGain(); lfoA.gain.value = .45;
+          lfo.connect(lfoF).connect(o.frequency);
+          const trill = actx.createGain(); trill.gain.value = .55;
+          lfo.connect(lfoA).connect(trill.gain);
+
+          // inviluppo del singolo fischio
+          const env = actx.createGain();
+          env.gain.setValueAtTime(0, s);
+          env.gain.linearRampToValueAtTime(1, s + .035);
+          env.gain.setValueAtTime(1, e - .09);
+          env.gain.exponentialRampToValueAtTime(.0001, e);
+
+          // soffio d'aria
+          const n = actx.createBufferSource(); n.buffer = noiseBuf;
+          const bp = actx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = f; bp.Q.value = 2.2;
+          const ng = actx.createGain(); ng.gain.value = .22;
+          n.connect(bp).connect(ng).connect(env);
+
+          o.connect(trill).connect(env);
+          env.connect(master);
+          o.start(s); lfo.start(s); n.start(s);
+          o.stop(e + .02); lfo.stop(e + .02); n.stop(e + .02);
+        });
+        setTimeout(() => { whistling = false; master.disconnect(); }, (end - actx.currentTime + .2) * 1000);
+      } catch (e) { whistling = false; }
     }
     const card = document.getElementById("card"), shirt = document.getElementById("shirt");
     function toggle(open) {
