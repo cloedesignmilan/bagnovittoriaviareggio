@@ -14,7 +14,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b6e8f'/%3E%3Cpath d='M6 40c6-5 11-5 17 0s11 5 17 0 11-5 18 0v18H6Z' fill='%237fe6ee'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-style='italic' font-size='28' text-anchor='middle' fill='%23fff'%3EV%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
@@ -346,6 +346,76 @@
       font-size: .78rem; letter-spacing: .14em; opacity: .55; text-align: center; padding: 0 90px;
     }
 
+
+    /* ================= SUB: CARICATURE DI POPI E DANIELE ================= */
+    .titlebox {
+      position: relative; width: 100%; max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center; gap: clamp(4px, 1.5vw, 24px);
+    }
+    .titlebox h2 { margin: 18px 0 0; flex: 0 1 auto; }
+    .diver {
+      --w: clamp(150px, 16vw, 235px);
+      position: relative; flex: none; width: var(--w);
+      animation: floaty 5.5s ease-in-out infinite;
+      transform-origin: 50% 35%;
+      filter: drop-shadow(0 18px 22px rgba(3,25,44,.45));
+    }
+    .diver.daniele { animation-delay: -2.7s; }
+    .diver img { width: 100%; height: auto; display: block; }
+    .diver.daniele img { transform: scaleX(-1); }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-16px) rotate(3deg); }
+    }
+    /* bolle */
+    .diver .blub { position: absolute; width: 30px; height: 110px; transform: translateY(-100%); pointer-events: none; }
+    .diver.popi .blub { left: 66%; top: 2%; }
+    .diver.daniele .blub { left: 44%; top: 3%; }
+    .diver .blub i {
+      position: absolute; bottom: 0; left: 6px;
+      width: 10px; height: 10px; border-radius: 50%;
+      border: 1.5px solid rgba(242,251,251,.85);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9) 0 18%, rgba(127,230,238,.15) 20%);
+      animation: blub 2.4s ease-in infinite; opacity: 0;
+    }
+    .diver .blub i:nth-child(2) { width: 6px; height: 6px; left: 15px; animation-delay: .5s; }
+    .diver .blub i:nth-child(3) { width: 12px; height: 12px; left: 2px; animation-delay: 1.1s; }
+    .diver .blub i:nth-child(4) { width: 5px; height: 5px; left: 17px; animation-delay: 1.7s; }
+    @keyframes blub {
+      0% { transform: translate(0, 0) scale(.6); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translate(8px, -105px) scale(1.15); opacity: 0; }
+    }
+    /* fumetti */
+    .diver .say {
+      position: absolute; top: -9%; z-index: 4;
+      background: #fff; color: #10283f; border: 2.5px solid #111; border-radius: 16px;
+      font: 700 clamp(.9rem, 1.3vw, 1.2rem)/1 "Caveat", cursive;
+      padding: 6px 11px; white-space: nowrap;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.25);
+      transform: scale(0); transition: transform .3s cubic-bezier(.3,1.7,.5,1);
+    }
+    .diver.popi .say { left: 62%; transform-origin: 0 100%; }
+    .diver.daniele .say { right: 62%; transform-origin: 100% 100%; }
+    .diver .say.on { transform: scale(1); }
+    /* scritta sulla lavagnetta di Daniele */
+    .diver .slate-txt {
+      position: absolute; left: 26.6%; top: 58.6%; width: 11.6%;
+      font: 700 calc(var(--w) * .055)/1 "Caveat", cursive; color: #d62718;
+      text-align: center; letter-spacing: -.05em; transform: rotate(-4deg); pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .titlebox { flex-wrap: wrap; gap: 0 3vw; }
+      .titlebox h2 { order: 3; width: 100%; }
+      .diver { --w: min(41vw, 175px); order: 1; margin-top: 34px; }
+      .diver .slate-txt { font-size: calc(var(--w) * .064); left: 28.4%; width: 11%; top: 58.2%; }
+      .diver.daniele { order: 2; }
+      .diver .say { font-size: .95rem; top: -12%; }
+      .diver.popi .say { left: 55%; }
+      .diver.daniele .say { right: 55%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .diver { animation: none !important; } }
+
     /* comparsa */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
     .reveal.in { opacity: 1; transform: none; }
@@ -389,7 +459,7 @@
       .dive { bottom: 110px; }
       .waves { height: 110px; }
       .water { -webkit-text-stroke-width: 1.5px; }
-      .shirt-btn { width: 60px; height: 60px; }
+      .shirt-btn { width: 52px; height: 52px; }
       .card { bottom: 74px; }
       .signoff { padding: 0 80px 0 16px; text-align: left; }
     }
@@ -448,7 +518,20 @@
     <canvas id="bubbles" aria-hidden="true"></canvas>
 
     <div class="kicker reveal">Sotto la superficie</div>
-    <h2 class="reveal d1">Qualcosa di <em>grande</em><br>sta salendo a galla.</h2>
+    <div class="titlebox reveal d1">
+      <div class="diver popi" aria-hidden="true">
+        <span class="blub"><i></i><i></i><i></i><i></i></span>
+        <img src="immagini/squadra/caricature/popi-sub.png" alt="">
+        <span class="say">Daniele, vedi anche tu?</span>
+      </div>
+      <h2>Qualcosa di <em>grande</em><br>sta salendo a galla.</h2>
+      <div class="diver daniele" aria-hidden="true">
+        <span class="blub"><i></i><i></i><i></i><i></i></span>
+        <img src="immagini/squadra/caricature/daniele-sub.png" alt="">
+        <span class="slate-txt">2027</span>
+        <span class="say">Novità in vista!</span>
+      </div>
+    </div>
 
     <p class="rotator reveal d2">
       <span>Stiamo preparando</span>
@@ -619,6 +702,16 @@
       si = (si + 1) % svcs.length;
       svcs[si].classList.add("lit");
     }, 1100);
+
+
+    /* ---------- Sub: fumetti alternati ---------- */
+    const says = [...document.querySelectorAll(".diver .say")];
+    let sj = 0;
+    if (!reduce && says.length) setInterval(() => {
+      says.forEach((el) => el.classList.remove("on"));
+      if (sj % 3 !== 2) says[sj % 3 === 0 ? 0 : 1].classList.add("on");
+      sj++;
+    }, 1800);
 
     /* ---------- Comparsa ---------- */
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .2 });

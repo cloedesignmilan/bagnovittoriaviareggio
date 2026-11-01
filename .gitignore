@@ -9,3 +9,10 @@ immagini/web/*
 !immagini/web/hero-2.jpg
 !immagini/web/hero-3.jpg
 !immagini/web/hero-4.jpg
+prova-*.html
+!immagini/squadra/
+immagini/squadra/*
+!immagini/squadra/caricature/
+immagini/squadra/caricature/*
+!immagini/squadra/caricature/popi-sub.png
+!immagini/squadra/caricature/daniele-sub.png
