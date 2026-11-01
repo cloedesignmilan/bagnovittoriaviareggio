@@ -567,8 +567,8 @@
 
     /* ---------- Bagnino: fischio + avviso ---------- */
     let actx;
-    /* Fischietto da bagnino, segnale d'emergenza: tre fischi brevi,
-       forti e stridenti, con il trillo della pallina e il soffio d'aria. */
+    /* Fischietto da bagnino, segnale d'emergenza: breve, lungo, breve,
+       forte e stridente, con il trillo della pallina e il soffio d'aria. */
     let whistling = false;
     function whistle() {
       if (whistling) return;
@@ -588,14 +588,14 @@
         master.connect(actx.destination);
 
         // rumore bianco riutilizzato per il soffio
-        const noiseBuf = actx.createBuffer(1, actx.sampleRate * .5, actx.sampleRate);
+        const noiseBuf = actx.createBuffer(1, actx.sampleRate * .9, actx.sampleRate);
         const nd = noiseBuf.getChannelData(0);
         for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
 
         const blasts = [
-          { at: 0,   dur: .2,  f: 3200 },
-          { at: .28, dur: .2,  f: 3200 },
-          { at: .56, dur: .34, f: 3300 }
+          { at: 0,    dur: .18, f: 3200 },
+          { at: .28,  dur: .75, f: 3300 },
+          { at: 1.13, dur: .18, f: 3200 }
         ];
         let end = 0;
         blasts.forEach(({ at, dur, f }) => {
