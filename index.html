@@ -418,12 +418,14 @@
 
     /* Telefono: sub ai lati del titolo, come su computer */
     @media (max-width: 900px) {
-      .titlebox { flex-wrap: nowrap; gap: 0; align-items: center; margin-top: 26px; }
-      .titlebox h2 { order: 0; width: auto; flex: 1 1 auto; min-width: 0; margin-top: 34px; font-size: min(8.4vw, 3.6rem); line-height: 1; text-wrap: balance; }
-      .diver, .diver.daniele { --w: min(23vw, 175px); order: 0; margin-top: 30px; flex: none; }
+      .titlebox { flex-wrap: nowrap; gap: 0; align-items: center; margin-top: 40px; }
+      .titlebox h2 { order: 0; width: auto; flex: 1 1 auto; min-width: 0; margin-top: 34px; font-size: min(7.4vw, 3.6rem); line-height: 1; text-wrap: balance; position: relative; z-index: 1; }
+      .diver, .diver.daniele { --w: min(31vw, 200px); order: 0; margin-top: 30px; flex: none; }
+      .diver.popi { margin-left: -4.5vw; }
+      .diver.daniele { margin-right: -4.5vw; }
       .diver .say { font-size: 1.05rem; top: -30%; padding: 5px 10px; border-width: 2px; }
-      .diver.popi .say { left: 18%; }
-      .diver.daniele .say { right: 18%; }
+      .diver.popi .say { left: 26%; }
+      .diver.daniele .say { right: 26%; }
       .diver .slate-txt { display: none; }
     }
 
