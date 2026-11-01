@@ -1,0 +1,11 @@
+# Pubblichiamo solo la pagina e le foto usate
+.DS_Store
+preview_tmp.html
+versione-*.html
+immagini/*
+!immagini/web/
+immagini/web/*
+!immagini/web/hero.jpg
+!immagini/web/hero-2.jpg
+!immagini/web/hero-3.jpg
+!immagini/web/hero-4.jpg

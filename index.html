@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bagno Vittoria · Stiamo pensando a tante novità</title>
+  <meta name="description" content="Bagno Vittoria, stabilimento balneare a gestione familiare da oltre 50 anni nella Darsena di Viareggio. Stiamo pensando a tante novità: il nuovo sito è in arrivo.">
+  <meta property="og:title" content="Bagno Vittoria · Stiamo pensando a tante novità">
+  <meta property="og:description" content="A tutti i clienti e amici: dalla Darsena di Viareggio stanno arrivando grandi novità.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bagnovittoriaviareggio.com/">
+  <meta property="og:image" content="https://bagnovittoriaviareggio.com/immagini/web/hero.jpg">
+  <meta name="theme-color" content="#0b6e8f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b6e8f'/%3E%3Cpath d='M6 40c6-5 11-5 17 0s11 5 17 0 11-5 18 0v18H6Z' fill='%237fe6ee'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-style='italic' font-size='28' text-anchor='middle' fill='%23fff'%3EV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Bagno Vittoria",
+    "description": "Stabilimento balneare e ristorante a gestione familiare nella Darsena di Viareggio.",
+    "url": "https://bagnovittoriaviareggio.com/",
+    "image": "https://bagnovittoriaviareggio.com/immagini/web/hero.jpg",
+    "telephone": "+39 0584 391342",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Viale Europa, 30",
+      "postalCode": "55049",
+      "addressLocality": "Viareggio",
+      "addressRegion": "LU",
+      "addressCountry": "IT"
+    },
+    "sameAs": ["https://www.facebook.com/bagno.vittoria.7"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --foam: #f2fbfb;
+      --aqua: #7fe6ee;
+      --turq: #1fb5c4;
+      --sea: #0b6e8f;
+      --deep: #063a5c;
+      --abyss: #03192c;
+      --sand: #f3e6cc;
+      --red: #d62718;
+      --red-deep: #a81c10;
+      --serif: "Fraunces", Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: "Jost", system-ui, -apple-system, sans-serif;
+      font-weight: 300;
+      color: var(--foam);
+      background: var(--abyss);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative;
+      height: 100svh; min-height: 600px;
+      overflow: hidden;
+      isolation: isolate;
+      cursor: crosshair;
+    }
+    .hero-bg {
+      position: absolute; inset: -4%;
+      background: var(--sea);
+      z-index: -3;
+    }
+    /* tre foto che si alternano in dissolvenza */
+    .slide {
+      position: absolute; inset: 0;
+      background: center 60% / cover no-repeat;
+      opacity: 0;
+      animation: slide 28s linear infinite;
+      will-change: opacity, transform;
+    }
+    .slide.s1 { background-image: url("immagini/web/hero.jpg"); animation-delay: -1s; }
+    .slide.s2 { background-image: url("immagini/web/hero-2.jpg"); animation-delay: 6s; background-position: center 55%; }
+    .slide.s3 { background-image: url("immagini/web/hero-3.jpg"); animation-delay: 13s; background-position: center 52%; }
+    .slide.s4 { background-image: url("immagini/web/hero-4.jpg"); animation-delay: 20s; background-position: center 50%; filter: saturate(1.25) contrast(1.05); }
+    .slide.s4::before { background: linear-gradient(180deg, rgba(3,25,44,.55) 0%, rgba(0,0,0,.1) 40%, rgba(3,25,44,.35) 100%), linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,0) 65%); }
+    .slide.s3::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,25,44,.55), rgba(3,25,44,.25) 70%); }
+    @keyframes slide {
+      0% { opacity: 0; transform: scale(1.03); }
+      4.5% { opacity: 1; }
+      25% { opacity: 1; }
+      30% { opacity: 0; transform: scale(1.13) translate(-1%, -1%); }
+      100% { opacity: 0; transform: scale(1.13); }
+    }
+    .dots {
+      position: absolute; left: clamp(16px, 6vw, 80px); bottom: 128px; z-index: 4;
+      display: flex; gap: 8px;
+    }
+    .dots i { width: 26px; height: 3px; border-radius: 2px; background: rgba(242,251,251,.3); overflow: hidden; position: relative; }
+    .dots i::after {
+      content: ""; position: absolute; inset: 0; background: var(--foam);
+      transform: scaleX(0); transform-origin: left;
+      animation: fill 28s linear infinite;
+    }
+    .dots i:nth-child(1)::after { animation-delay: -1s; }
+    .dots i:nth-child(2)::after { animation-delay: 6s; }
+    .dots i:nth-child(3)::after { animation-delay: 13s; }
+    .dots i:nth-child(4)::after { animation-delay: 20s; }
+    @keyframes fill { 0% { transform: scaleX(0); } 25% { transform: scaleX(1); } 25.1%, 100% { transform: scaleX(0); } }
+    .hero-tint { display: none; }
+    .slide::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(3,25,44,.55) 0%, rgba(6,58,92,.25) 35%, rgba(11,110,143,.35) 65%, rgba(31,181,196,.55) 100%),
+        linear-gradient(90deg, rgba(3,25,44,.45), rgba(3,25,44,0) 60%);
+    }
+    /* riflessi di luce sull'acqua */
+    .caustics {
+      position: absolute; inset: -20%; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(closest-side, rgba(255,255,255,.22), transparent) 0 0 / 220px 140px,
+        radial-gradient(closest-side, rgba(127,230,238,.25), transparent) 60px 40px / 300px 180px;
+      mix-blend-mode: soft-light;
+      animation: shimmer 9s linear infinite;
+      opacity: .9;
+    }
+    .caustics.b { animation-duration: 13s; animation-direction: reverse; background-size: 260px 170px, 340px 210px; opacity: .6; }
+    @keyframes shimmer { from { transform: translate(0,0) rotate(0); } to { transform: translate(-220px, 140px) rotate(2deg); } }
+
+    .topbar {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 4;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 22px clamp(16px, 5vw, 60px);
+    }
+    .brand { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.45rem; letter-spacing: -.01em; }
+    .where { font-size: .74rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; opacity: .85; }
+
+    .hero-content {
+      position: absolute; inset: 0; z-index: 3;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 90px clamp(16px, 6vw, 80px) 170px;
+      will-change: transform, opacity;
+    }
+    .pill {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px 8px 10px;
+      border-radius: 999px;
+      background: rgba(242,251,251,.12);
+      border: 1px solid rgba(242,251,251,.35);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-size: .74rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase;
+    }
+    .pill .beacon { width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 0 rgba(214,39,24,.7); animation: beacon 1.8s infinite; }
+    @keyframes beacon { 70% { box-shadow: 0 0 0 12px rgba(214,39,24,0); } 100% { box-shadow: 0 0 0 0 rgba(214,39,24,0); } }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-variation-settings: "opsz" 144;
+      font-size: clamp(3rem, 10.5vw, 10rem);
+      line-height: .9;
+      letter-spacing: -.035em;
+      margin: 28px 0 0;
+      text-shadow: 0 10px 40px rgba(3,25,44,.35);
+    }
+    h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+    h1 .line > span { display: inline-block; transform: translateY(110%); animation: rise 1.2s cubic-bezier(.2,.8,.2,1) forwards; }
+    h1 .line:nth-child(2) > span { animation-delay: .18s; }
+    @keyframes rise { to { transform: none; } }
+    h1 em { font-style: italic; font-weight: 400; }
+
+    /* "novità" riempita d'acqua */
+    .water {
+      font-style: italic; font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--foam);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200' preserveAspectRatio='none'%3E%3Cpath d='M0 100 C50 80 100 80 150 100 S250 120 300 100 S350 80 400 100 V200 H0Z' fill='%237fe6ee'/%3E%3C/svg%3E") 0 0 / 400px 100% repeat-x,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200' preserveAspectRatio='none'%3E%3Cpath d='M0 110 C60 95 110 125 170 110 S280 92 340 110 S380 118 400 110 V200 H0Z' fill='%23f2fbfb' fill-opacity='.85'/%3E%3C/svg%3E") 0 0 / 300px 100% repeat-x;
+      -webkit-background-clip: text; background-clip: text;
+      animation: waterflow 4s linear infinite, waterlevel 6s ease-in-out infinite;
+      padding-right: .08em;
+    }
+    @keyframes waterflow { to { background-position: 400px 0, -300px 0; } }
+    @keyframes waterlevel {
+      0%, 100% { background-size: 400px 100%, 300px 100%; background-position-y: 18%, 22%; }
+      50% { background-position-y: -6%, 0%; }
+    }
+
+    .sub {
+      margin-top: 26px;
+      max-width: 540px;
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      opacity: 0; animation: fadeup 1s .7s ease forwards;
+    }
+    .sub b { font-weight: 500; }
+    @keyframes fadeup { from { opacity: 0; transform: translateY(14px); } to { opacity: .95; transform: none; } }
+
+    .dive {
+      position: absolute; left: 50%; bottom: 120px; z-index: 4;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      text-decoration: none;
+      font-size: .7rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
+      opacity: 0; animation: fadeup 1s 1.3s ease forwards;
+    }
+    .dive .mouse {
+      width: 26px; height: 40px; border: 1.5px solid currentColor; border-radius: 14px; position: relative;
+    }
+    .dive .mouse::after {
+      content: ""; position: absolute; left: 50%; top: 7px; width: 4px; height: 8px; margin-left: -2px;
+      border-radius: 2px; background: currentColor; animation: wheel 1.6s ease-in-out infinite;
+    }
+    @keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(14px); opacity: 0; } }
+
+    /* onde vere */
+    .waves { position: absolute; left: 0; right: 0; bottom: -1px; height: 150px; z-index: 2; pointer-events: none; }
+    .waves svg { width: 100%; height: 100%; display: block; }
+
+    /* cerchi nell'acqua al tocco */
+    .ripple {
+      position: absolute; z-index: 2; pointer-events: none;
+      width: 20px; height: 20px; margin: -10px 0 0 -10px;
+      border-radius: 50%;
+      border: 2px solid rgba(242,251,251,.8);
+      animation: ripple 1.6s cubic-bezier(.1,.6,.3,1) forwards;
+    }
+    .ripple.r2 { animation-delay: .18s; opacity: 0; border-width: 1.5px; }
+    .ripple.r3 { animation-delay: .36s; opacity: 0; border-width: 1px; }
+    @keyframes ripple {
+      0% { transform: scale(.2) scaleY(.45); opacity: 1; }
+      100% { transform: scale(14) scaleY(.45); opacity: 0; }
+    }
+
+    /* ================= SOTT'ACQUA ================= */
+    .under {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      isolation: isolate;
+      background: linear-gradient(180deg, var(--turq) 0%, var(--sea) 22%, var(--deep) 58%, var(--abyss) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 16px 140px;
+    }
+    .rays {
+      position: absolute; left: 50%; top: -10%; width: 160%; height: 90%; z-index: -2;
+      transform: translateX(-50%);
+      background: repeating-conic-gradient(from 160deg at 50% 0%, rgba(242,251,251,.12) 0deg 3deg, transparent 3deg 9deg, rgba(242,251,251,.06) 9deg 11deg, transparent 11deg 18deg);
+      -webkit-mask: radial-gradient(ellipse 60% 100% at 50% 0%, #000 10%, transparent 75%);
+      mask: radial-gradient(ellipse 60% 100% at 50% 0%, #000 10%, transparent 75%);
+      animation: sway 9s ease-in-out infinite alternate;
+      transform-origin: 50% 0;
+    }
+    @keyframes sway { from { transform: translateX(-50%) rotate(-4deg); } to { transform: translateX(-50%) rotate(4deg); } }
+    #bubbles { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+    .under .kicker {
+      font-size: .74rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--aqua);
+    }
+    .under h2 {
+      font-family: var(--serif); font-weight: 300; font-variation-settings: "opsz" 144;
+      font-size: clamp(2.4rem, 7vw, 6rem); line-height: 1; letter-spacing: -.03em;
+      margin: 18px auto 0; max-width: 1000px;
+    }
+    .under h2 em { font-style: italic; font-weight: 500; color: var(--aqua); }
+
+    .rotator {
+      margin-top: 34px;
+      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .4em;
+    }
+    .rotator .words {
+      display: inline-grid; justify-items: start;
+      overflow: hidden; padding: 0 .15em .1em 0;
+    }
+    .rotator .words span {
+      grid-area: 1 / 1; white-space: nowrap;
+      font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--sand);
+      transform: translateY(110%); opacity: 0;
+      transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .6s;
+    }
+    .rotator .words span.on { transform: none; opacity: 1; }
+    .rotator .words span.off { transform: translateY(-110%); opacity: 0; }
+
+    .chips { margin-top: 56px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 20px; border-radius: 999px;
+      background: rgba(242,251,251,.08);
+      border: 1px solid rgba(242,251,251,.22);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      text-decoration: none; font-weight: 400; font-size: .98rem;
+      transition: background .2s, transform .2s, border-color .2s;
+    }
+    .chip:hover { background: rgba(242,251,251,.16); border-color: var(--aqua); transform: translateY(-2px); }
+    .chip svg { width: 18px; height: 18px; color: var(--aqua); flex: none; }
+
+    .signoff {
+      position: absolute; left: 0; right: 0; bottom: 26px;
+      font-size: .78rem; letter-spacing: .14em; opacity: .55; text-align: center; padding: 0 90px;
+    }
+
+    /* comparsa */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .15s; } .reveal.d2 { transition-delay: .3s; } .reveal.d3 { transition-delay: .45s; }
+
+    /* ================= ANGOLO DEL BAGNINO ================= */
+    .lifeguard { position: fixed; right: 16px; bottom: 16px; z-index: 50; }
+    .shirt-btn {
+      width: 70px; height: 70px; border: 0; background: none; cursor: pointer; padding: 0;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,.4));
+      transform-origin: 50% 0; animation: swing 3.2s ease-in-out infinite;
+    }
+    .shirt-btn svg { width: 100%; height: 100%; overflow: visible; }
+    .shirt-btn:focus-visible { outline: 3px solid var(--aqua); outline-offset: 4px; border-radius: 12px; }
+    @keyframes swing { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+    .card {
+      position: absolute; right: 0; bottom: 86px;
+      width: min(300px, calc(100vw - 32px));
+      background: var(--red); color: #fff;
+      border-radius: 18px; padding: 18px 18px 16px;
+      box-shadow: 0 24px 50px -16px rgba(0,0,0,.6);
+      transform-origin: 100% 100%;
+      transform: scale(.8) translateY(16px); opacity: 0; visibility: hidden;
+      transition: transform .3s cubic-bezier(.2,.9,.3,1.3), opacity .2s, visibility 0s .3s;
+    }
+    .card.show { transform: none; opacity: 1; visibility: visible; transition: transform .3s cubic-bezier(.2,.9,.3,1.3), opacity .2s; }
+    .card .word { font-family: "Anton", Impact, sans-serif; font-size: 1.7rem; letter-spacing: .08em; line-height: 1; }
+    .card p { margin: 10px 0 14px; font-size: 1rem; line-height: 1.4; font-weight: 400; }
+    .card a {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--red); text-decoration: none;
+      font-weight: 600; font-size: .85rem; letter-spacing: .04em;
+      padding: 10px 16px; border-radius: 999px;
+    }
+    .card .x { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.6); background: none; color: #fff; cursor: pointer; }
+
+    @media (max-width: 600px) {
+      .where { display: none; }
+      h1 { font-size: 12.6vw; }
+      .hero-content { padding-bottom: 190px; }
+      .dive { bottom: 110px; }
+      .waves { height: 110px; }
+      .water { -webkit-text-stroke-width: 1.5px; }
+      .shirt-btn { width: 60px; height: 60px; }
+      .card { bottom: 74px; }
+      .signoff { padding: 0 80px 0 16px; text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .slide { animation: none !important; }
+      .slide.s1 { opacity: 1; }
+      .dots { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true">
+      <div class="slide s1"></div>
+      <div class="slide s2"></div>
+      <div class="slide s3"></div>
+      <div class="slide s4"></div>
+    </div>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="hero-tint" aria-hidden="true"></div>
+    <div class="caustics" aria-hidden="true"></div>
+    <div class="caustics b" aria-hidden="true"></div>
+
+    <nav class="topbar">
+      <span class="brand">Bagno Vittoria</span>
+      <span class="where">Darsena · Viareggio</span>
+    </nav>
+
+    <div class="hero-content" id="heroContent">
+      <span class="pill"><span class="beacon"></span>A tutti i clienti e amici</span>
+      <h1>
+        <span class="line"><span>Stiamo pensando</span></span>
+        <span class="line"><span><em>a tante</em> <span class="water">novità</span></span></span>
+      </h1>
+      <p class="sub">Sta arrivando il nuovo sito del <b>Bagno Vittoria</b>: un modo per essere <b>ancora più vicini</b> a tutti voi. Da oltre 50 anni in Darsena, insieme.</p>
+    </div>
+
+    <a class="dive" href="#sottacqua" aria-label="Scorri giù"><span class="mouse"></span>Tuffati</a>
+
+    <div class="waves" aria-hidden="true">
+      <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path id="w1" fill="rgba(242,251,251,.35)"/>
+        <path id="w2" fill="rgba(127,230,238,.55)"/>
+        <path id="w3" fill="#1fb5c4"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ================= SOTT'ACQUA ================= -->
+  <main class="under" id="sottacqua">
+    <div class="rays" aria-hidden="true"></div>
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+
+    <div class="kicker reveal">Sotto la superficie</div>
+    <h2 class="reveal d1">Qualcosa di <em>grande</em><br>sta salendo a galla.</h2>
+
+    <p class="rotator reveal d2">
+      <span>Stiamo preparando</span>
+      <span class="words" id="words">
+        <span class="on">nuove idee</span>
+        <span>novità in spiaggia</span>
+        <span>sorprese a tavola</span>
+        <span>l'estate 2027</span>
+      </span>
+    </p>
+
+    <div class="chips reveal d3">
+      <a class="chip" href="tel:+390584391342">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+        0584 391342
+      </a>
+      <a class="chip" href="https://www.google.com/maps/search/?api=1&query=Bagno+Vittoria+Viale+Europa+30+55049+Viareggio" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Viale Europa 30, Viareggio
+      </a>
+      <a class="chip" href="https://www.facebook.com/bagno.vittoria.7" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></svg>
+        Facebook
+      </a>
+    </div>
+
+    <div class="signoff">© <span id="y">2026</span> Bagno Vittoria · Gestione familiare da oltre 50 anni</div>
+  </main>
+
+  <!-- ================= ANGOLO DEL BAGNINO ================= -->
+  <div class="lifeguard">
+    <div class="card" id="card" role="dialog" aria-label="Il bagnino avvisa">
+      <button class="x" id="x" aria-label="Chiudi">✕</button>
+      <div class="word">SALVATAGGIO</div>
+      <p>Fischio di avviso: stiamo arrivando con tante novità! Per qualsiasi cosa, chiamate la torretta.</p>
+      <a href="tel:+390584391342">Chiama 0584 391342</a>
+    </div>
+    <button class="shirt-btn" id="shirt" aria-label="Apri l'avviso del bagnino" aria-expanded="false" aria-controls="card">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 2v8" stroke="#e8d9b5" stroke-width="2"/>
+        <path d="M32 12 8 25l9 18 9-5v52h48V38l9 5 9-18-24-13c-3 7-10 11-18 11s-15-4-18-11Z" fill="#d62718" stroke="#a81c10" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M32 12c3 7 10 11 18 11s15-4 18-11" fill="none" stroke="#a81c10" stroke-width="3"/>
+        <text x="50" y="58" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="11.5" letter-spacing=".6" fill="#fff">SALVATAGGIO</text>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- Onde animate ---------- */
+    const W = 1440, H = 150;
+    const layers = [
+      { el: document.getElementById("w1"), base: 40, amp: 16, len: 520, speed: .55, phase: 0 },
+      { el: document.getElementById("w2"), base: 70, amp: 13, len: 380, speed: -.8, phase: 2 },
+      { el: document.getElementById("w3"), base: 98, amp: 10, len: 300, speed: 1.1, phase: 4 }
+    ];
+    function wavePath(l, t) {
+      let d = `M0 ${H} L`;
+      for (let x = 0; x <= W; x += 24) {
+        const y = l.base
+          + Math.sin((x / l.len) * Math.PI * 2 + t * l.speed + l.phase) * l.amp
+          + Math.sin((x / (l.len * .43)) * Math.PI * 2 - t * l.speed * 1.3) * l.amp * .35;
+        d += `${x} ${y.toFixed(1)} L`;
+      }
+      return d + `${W} ${H} Z`;
+    }
+    function drawWaves(t) { layers.forEach((l) => l.el.setAttribute("d", wavePath(l, t))); }
+    drawWaves(0);
+
+    /* ---------- Bolle sott'acqua ---------- */
+    const cv = document.getElementById("bubbles");
+    const c2 = cv.getContext("2d");
+    let bubbles = [], cw = 0, ch = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function sizeCanvas() {
+      cw = cv.clientWidth; ch = cv.clientHeight;
+      cv.width = cw * dpr; cv.height = ch * dpr;
+      c2.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.round(Math.min(90, cw / 14));
+      bubbles = Array.from({ length: n }, () => newBubble(true));
+    }
+    function newBubble(anywhere) {
+      const r = Math.random() ** 2 * 9 + 1.5;
+      return { x: Math.random() * cw, y: anywhere ? Math.random() * ch : ch + r * 2, r,
+               v: .25 + r * .09 + Math.random() * .3, w: Math.random() * Math.PI * 2, ws: .01 + Math.random() * .02 };
+    }
+    function drawBubbles() {
+      c2.clearRect(0, 0, cw, ch);
+      for (const b of bubbles) {
+        b.y -= b.v; b.w += b.ws;
+        const x = b.x + Math.sin(b.w) * (4 + b.r);
+        if (b.y < -20) Object.assign(b, newBubble(false));
+        const fade = Math.min(1, b.y / (ch * .25));
+        c2.beginPath(); c2.arc(x, b.y, b.r, 0, Math.PI * 2);
+        c2.strokeStyle = `rgba(242,251,251,${.45 * fade})`; c2.lineWidth = 1; c2.stroke();
+        c2.fillStyle = `rgba(127,230,238,${.08 * fade})`; c2.fill();
+        c2.beginPath(); c2.arc(x - b.r * .35, b.y - b.r * .35, b.r * .25, 0, Math.PI * 2);
+        c2.fillStyle = `rgba(255,255,255,${.7 * fade})`; c2.fill();
+      }
+    }
+    sizeCanvas();
+    addEventListener("resize", sizeCanvas);
+
+    /* ---------- Scroll: il titolo affonda ---------- */
+    const heroContent = document.getElementById("heroContent");
+    const heroBg = document.getElementById("heroBg");
+    function onScroll() {
+      const p = Math.min(1, scrollY / innerHeight);
+      heroContent.style.transform = `translateY(${p * 90}px) scale(${1 - p * .06})`;
+      heroContent.style.opacity = 1 - p * 1.3;
+      heroContent.style.filter = `blur(${p * 6}px)`;
+      heroBg.style.translate = `0 ${p * 60}px`;
+    }
+    addEventListener("scroll", onScroll, { passive: true });
+
+    /* ---------- Loop principale ---------- */
+    let underVisible = false;
+    new IntersectionObserver((es) => { underVisible = es[0].isIntersecting; }).observe(document.getElementById("sottacqua"));
+    function frame(ms) {
+      const t = ms / 1000;
+      drawWaves(t);
+      if (underVisible) drawBubbles();
+      requestAnimationFrame(frame);
+    }
+    if (!reduce) requestAnimationFrame(frame); else drawBubbles();
+
+    /* ---------- Cerchi nell'acqua ---------- */
+    const hero = document.getElementById("hero");
+    hero.addEventListener("pointerdown", (e) => {
+      if (reduce || e.target.closest("a, button")) return;
+      const r = hero.getBoundingClientRect();
+      ["", "r2", "r3"].forEach((cls) => {
+        const d = document.createElement("span");
+        d.className = "ripple " + cls;
+        d.style.left = e.clientX - r.left + "px";
+        d.style.top = e.clientY - r.top + "px";
+        hero.appendChild(d);
+        setTimeout(() => d.remove(), 2200);
+      });
+    });
+
+    /* ---------- Parole che cambiano ---------- */
+    const words = [...document.querySelectorAll("#words span")];
+    let wi = 0;
+    if (!reduce) setInterval(() => {
+      const cur = words[wi]; wi = (wi + 1) % words.length; const nxt = words[wi];
+      cur.classList.remove("on"); cur.classList.add("off");
+      nxt.classList.remove("off"); nxt.classList.add("on");
+      setTimeout(() => cur.classList.remove("off"), 650);
+    }, 2400);
+
+    /* ---------- Comparsa ---------- */
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .2 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    /* ---------- Bagnino: fischio + avviso ---------- */
+    let actx;
+    function whistle() {
+      try {
+        actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+        const t = actx.currentTime, o = actx.createOscillator(), l = actx.createOscillator(), lg = actx.createGain(), g = actx.createGain();
+        o.frequency.setValueAtTime(2700, t); l.frequency.setValueAtTime(32, t); lg.gain.setValueAtTime(140, t);
+        l.connect(lg).connect(o.frequency);
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.12, t + .03); g.gain.setValueAtTime(.12, t + .22);
+        g.gain.linearRampToValueAtTime(.02, t + .27); g.gain.linearRampToValueAtTime(.12, t + .31);
+        g.gain.setValueAtTime(.12, t + .62); g.gain.exponentialRampToValueAtTime(.0001, t + .75);
+        o.connect(g).connect(actx.destination); o.start(t); l.start(t); o.stop(t + .8); l.stop(t + .8);
+      } catch (e) {}
+    }
+    const card = document.getElementById("card"), shirt = document.getElementById("shirt");
+    function toggle(open) {
+      const on = open ?? !card.classList.contains("show");
+      card.classList.toggle("show", on); shirt.setAttribute("aria-expanded", on);
+      if (on) whistle();
+    }
+    shirt.addEventListener("click", () => toggle());
+    document.getElementById("x").addEventListener("click", () => toggle(false));
+    addEventListener("keydown", (e) => { if (e.key === "Escape") toggle(false); });
+  </script>
+</body>
+</html>
