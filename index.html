@@ -201,6 +201,15 @@
     .sub b { font-weight: 500; }
     @keyframes fadeup { from { opacity: 0; transform: translateY(14px); } to { opacity: .95; transform: none; } }
 
+    /* mobile: testo hero più grande e leggibile */
+    @media (max-width: 600px) {
+      .sub {
+        font-size: 1.24rem; line-height: 1.5; font-weight: 400;
+        text-shadow: 0 1px 2px rgba(3,25,44,.55), 0 2px 18px rgba(3,25,44,.45);
+      }
+      .sub b { font-weight: 600; }
+    }
+
     .dive {
       position: absolute; left: 50%; bottom: 120px; z-index: 4;
       transform: translateX(-50%);
@@ -467,7 +476,7 @@
 
     @media (max-width: 600px) {
       .where { display: none; }
-      h1 { font-size: 12.6vw; }
+      h1 { font-size: 14vw; line-height: .95; }
       .hero-content { padding-bottom: 190px; }
       .dive { bottom: 110px; }
       .waves { height: 110px; }
