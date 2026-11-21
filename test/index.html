@@ -1278,6 +1278,13 @@
     .servizi { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     @media (max-width: 1100px) { .servizi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 560px) { .servizi { grid-template-columns: 1fr; } }
+    .map-ph { position: relative; display: grid; place-content: center; justify-items: center; gap: 6px; width: 100%; aspect-ratio: 16 / 10; border: 0; cursor: pointer; color: var(--inchiostro); text-align: center;
+      background: radial-gradient(circle at 70% 30%, #9fd0d6 0 22%, transparent 23%), linear-gradient(115deg, #8fc8cf 0 32%, #f2e7cc 32% 100%); }
+    .map-ph svg { width: 58px; filter: drop-shadow(0 8px 8px rgba(36,64,47,.25)); transition: transform .3s cubic-bezier(.3,1.6,.5,1); }
+    .map-ph:hover svg { transform: translateY(-6px); }
+    .map-ph-t { padding: 9px 18px; border-radius: 99px; background: var(--inchiostro); color: var(--panna); font: 600 .95rem/1 var(--sans); }
+    .map-ph-s { font-size: .78rem; opacity: .75; }
+    @media (max-width: 520px) { .map-ph { aspect-ratio: 1 / 1; } }
     .orologio { display: none !important; }
   </style>
 </head>
@@ -1728,8 +1735,8 @@
         </ul>
       </div>
       <div class="photo-stack rv d1">
-        <img class="a" src="img/torretta.jpg" alt="Il mare visto dal Bagno Vittoria, con la torretta del bagnino e le bandiere" style="object-position:62% 50%">
-        <img class="b" src="img/foto/01-sabbia-rastrellata.jpg" alt="La spiaggia rastrellata a righe tra gli ombrelloni verdi del Bagno Vittoria" style="object-position:50% 70%">
+        <img loading="lazy" decoding="async" class="a" src="img/torretta.jpg" alt="Il mare visto dal Bagno Vittoria, con la torretta del bagnino e le bandiere" style="object-position:62% 50%">
+        <img loading="lazy" decoding="async" class="b" src="img/foto/01-sabbia-rastrellata.jpg" alt="La spiaggia rastrellata a righe tra gli ombrelloni verdi del Bagno Vittoria" style="object-position:50% 70%">
       </div>
     </div>
   </section>
@@ -1878,7 +1885,7 @@
         </div>
         <div class="cu-plate rv d1" aria-hidden="true">
           <svg class="orbita" viewBox="0 0 500 500"><defs><path id="orb" d="M250 250m-232 0a232 232 0 1 1 464 0a232 232 0 1 1-464 0"/></defs><text font-family="Jost" font-size="15.5" font-weight="600" letter-spacing="3" fill="#24402f"><textPath href="#orb" textLength="1450" lengthAdjust="spacing">SENZA COSTI DI COPERTO ✦ BUFFET SERVITO ✦ PRIMI SEMPRE ESPRESSI ✦ SENZA COSTI DI COPERTO ✦ BUFFET SERVITO ✦ PRIMI SEMPRE ESPRESSI ✦</textPath></text></svg>
-          <div class="piatto-foto"><img src="img/foto/piatto-vero.jpg" alt="Insalata di mare con gamberi, calamari e polpo, servita al Bagno Vittoria"></div>
+          <div class="piatto-foto"><img loading="lazy" decoding="async" src="img/foto/piatto-vero.jpg" alt="Insalata di mare con gamberi, calamari e polpo, servita al Bagno Vittoria"></div>
           <svg class="posate" viewBox="0 0 60 300" fill="#fffaf0" stroke="#24402f" stroke-width="3" stroke-linejoin="round"><path d="M8 10v60q0 16 10 20v190a6 6 0 0 0 12 0V90q10-4 10-20V10h-4v50h-5V10h-4v50h-5V10h-4v50h-6V10z"/></svg>
           <div class="bollo"><div><small>la domenica</small>c'è la lasagna!</div></div>
         </div>
@@ -2043,8 +2050,8 @@
 
       <div class="piatti rv">
         <figure class="p-a"><img src="img/foto/19-veranda-ulivo.jpg" alt="La veranda del Bagno Vittoria con l'ulivo e i tavoli" loading="lazy"><figcaption>La veranda</figcaption></figure>
-        <figure class="p-b"><img src="img/foto/17-crocchette-e-patatine.jpg" alt="Crocchette e patatine a tavola all\'aperto"><figcaption>Crocchette e patatine</figcaption></figure>
-        <figure class="p-c"><img src="img/ristorante-sera.jpg" alt="Il ristorante sul mare la sera"><figcaption>La sera, sul mare</figcaption></figure>
+        <figure class="p-b"><img loading="lazy" decoding="async" src="img/foto/17-crocchette-e-patatine.jpg" alt="Crocchette e patatine a tavola all\'aperto"><figcaption>Crocchette e patatine</figcaption></figure>
+        <figure class="p-c"><img loading="lazy" decoding="async" src="img/ristorante-sera.jpg" alt="Il ristorante sul mare la sera"><figcaption>La sera, sul mare</figcaption></figure>
         <figure class="p-d"><img src="img/foto/04-pranzo-sulla-sabbia.jpg" alt="I tavoli sotto gli ombrelloni bianchi per il pranzo sulla sabbia" loading="lazy"><figcaption>Pranzo sulla sabbia</figcaption></figure>
         <figure class="p-e"><img src="img/foto/12-capanna-tavola-apparecchiata.jpg" alt="Una lunga tavola apparecchiata sotto la capanna in paglia" loading="lazy"><figcaption>Sotto la capanna</figcaption></figure>
       </div>
@@ -2082,7 +2089,7 @@
 
   <!-- ===== CAPANNE ===== -->
   <section class="capanne" data-ora="14:00" data-cosa="pranzo lungo, a piedi scalzi">
-    <div class="bg" id="capBg"><img src="img/foto/03-capanne-al-tramonto.jpg" alt="Le capanne in paglia del Bagno Vittoria al tramonto"></div>
+    <div class="bg" id="capBg"><img loading="lazy" decoding="async" src="img/foto/03-capanne-al-tramonto.jpg" alt="Le capanne in paglia del Bagno Vittoria al tramonto"></div>
     <div class="wrap">
       <span class="kicker rv" style="color:var(--verde-2)">Sotto le capanne</span>
       <h2 class="rv d1">A piedi scalzi,<br><em>anche a pranzo.</em></h2>
@@ -2258,7 +2265,11 @@
         </div>
         <div class="map-embed rv d3">
           <div class="map-vista" role="group" aria-label="Tipo di mappa"><button type="button" class="on" data-t="k">Satellite</button><button type="button" data-t="m">Mappa</button></div>
-          <iframe id="mapFrame" loading="lazy" title="Mappa: Bagno Vittoria, Viale Europa 30, Viareggio" src="https://maps.google.com/maps?q=Bagno%20Vittoria%2C%20Viale%20Europa%2030%2C%20Viareggio&amp;t=k&amp;z=17&amp;output=embed"></iframe>
+          <button type="button" class="map-ph" id="mapPh" aria-label="Mostra la mappa di Google">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 58S12 38 12 24a20 20 0 0 1 40 0c0 14-20 34-20 34z" fill="#d9774f" stroke="#24402f" stroke-width="3"/><circle cx="32" cy="24" r="7" fill="#fffaf0" stroke="#24402f" stroke-width="3"/></svg>
+            <span class="map-ph-t">Mostra la mappa</span>
+            <span class="map-ph-s">Toccando, la mappa viene caricata da Google</span>
+          </button>
           <div class="map-barra">
             <p><b>Bagno Vittoria</b><span>Viale Europa 30 · Viareggio</span></p>
             <div class="map-btn">
@@ -2304,7 +2315,7 @@
     <div class="bg"><img src="img/foto/05-tramonto-orizzontale.jpg" alt="" loading="lazy"></div>
     <div class="festoni" style="--fc:var(--panna)"></div>
     <div class="inner">
-      <img class="logo" src="img/logo-v.svg" alt="Bagno Vittoria">
+      <img loading="lazy" decoding="async" class="logo" src="img/logo-v.svg" alt="Bagno Vittoria">
       <p class="big">Ci vediamo in spiaggia.</p>
       <div class="small">
         <span>Bagno Vittoria · Viale Europa, 30 · 55049 Viareggio (LU)</span>
@@ -3095,12 +3106,18 @@
     })();
     (() => { const a = document.getElementById("anno"); if (a) a.textContent = new Date().getFullYear(); })();
     (() => {
-      const f = document.getElementById("mapFrame"); if (!f) return;
+      const ph = document.getElementById("mapPh"); if (!ph) return;
       const b = [...document.querySelectorAll(".map-vista button")];
-      b.forEach((x) => x.addEventListener("click", () => {
-        b.forEach((y) => y.classList.toggle("on", y === x));
-        f.src = f.src.replace(/([?&](amp;)?t=)[a-z]/, "$1" + x.dataset.t);
-      }));
+      let tipo = "k", f = null;
+      const url = () => "https://maps.google.com/maps?q=Bagno%20Vittoria%2C%20Viale%20Europa%2030%2C%20Viareggio&t=" + tipo + "&z=17&output=embed";
+      const carica = () => {
+        if (f) { f.src = url(); return; }
+        f = document.createElement("iframe");
+        f.id = "mapFrame"; f.title = "Mappa: Bagno Vittoria, Viale Europa 30, Viareggio"; f.src = url();
+        ph.replaceWith(f);
+      };
+      ph.addEventListener("click", carica);
+      b.forEach((x) => x.addEventListener("click", () => { b.forEach((y) => y.classList.toggle("on", y === x)); tipo = x.dataset.t; carica(); }));
     })();
   </script>
 </body>
