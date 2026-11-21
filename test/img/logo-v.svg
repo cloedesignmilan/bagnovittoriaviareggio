@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Bagno Vittoria">
+  <circle cx="60" cy="60" r="57" fill="#f7f1e3" stroke="#4f7d63" stroke-width="2"/>
+  <circle cx="60" cy="60" r="51" fill="none" stroke="#4f7d63" stroke-width=".8" stroke-dasharray="2 3"/>
+  <!-- V: asta piena a sinistra, filo sottile a destra, con grazie -->
+  <path d="M28 28h27v2.4h-4.6L66.4 75 84 30.4h-5V28h14v2.4h-5.6L62.6 92h-2.6L38.4 30.4H28z" fill="#4f7d63"/>
+  <!-- onda -->
+  <path d="M39 99.5c3.5-3 7-3 10.5 0s7 3 10.5 0 7-3 10.5 0 7 3 10.5 0" fill="none" stroke="#7fb3a0" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

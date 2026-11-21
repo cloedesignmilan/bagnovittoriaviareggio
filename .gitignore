@@ -16,3 +16,9 @@ immagini/squadra/*
 immagini/squadra/caricature/*
 !immagini/squadra/caricature/popi-sub.png
 !immagini/squadra/caricature/daniele-sub.png
+
+# Nuovo sito in lavorazione (solo locale)
+sito-nuovo/
+
+# Foto originali da sistemare (solo locale)
+foto-da-usare/
